@@ -1,4 +1,4 @@
-package com.amayr.d1;
+package com.amayr;
 
 import org.apache.commons.lang3.time.StopWatch;
 
