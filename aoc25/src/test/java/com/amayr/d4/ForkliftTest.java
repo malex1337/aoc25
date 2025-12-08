@@ -1,15 +1,18 @@
 package com.amayr.d4;
 
-import com.amayr.FileUtil;
+import com.amayr.IncludeAOCFile;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 final class ForkliftTest {
 
+    @IncludeAOCFile(fileName = "d4_input_given")
     @Test
-    void given1() {
-        var grid = FileUtil.parseFile("d4_input_given").stream()
+    void given1(List<String> lines) {
+        var grid = lines.stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
 
@@ -17,9 +20,10 @@ final class ForkliftTest {
         assertEquals(13, forklift.accessibleRolls());
     }
 
+    @IncludeAOCFile(fileName = "d4_input_task")
     @Test
-    void task1() {
-        var grid = FileUtil.parseFile("d4_input_task").stream()
+    void task1(List<String> lines) {
+        var grid = lines.stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
 
@@ -27,9 +31,10 @@ final class ForkliftTest {
         assertEquals(1389, forklift.accessibleRolls());
     }
 
+    @IncludeAOCFile(fileName = "d4_input_given")
     @Test
-    void given2() {
-        var grid = FileUtil.parseFile("d4_input_given").stream()
+    void given2(List<String> lines) {
+        var grid = lines.stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
 
@@ -37,9 +42,10 @@ final class ForkliftTest {
         assertEquals(43, forklift.accessibleRolls2());
     }
 
+    @IncludeAOCFile(fileName = "d4_input_task")
     @Test
-    void task2() {
-        var grid = FileUtil.parseFile("d4_input_task").stream()
+    void task2(List<String> lines) {
+        var grid = lines.stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
 

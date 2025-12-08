@@ -1,6 +1,6 @@
 package com.amayr.d1;
 
-import com.amayr.FileUtil;
+import com.amayr.IncludeAOCFile;
 import com.amayr.Measuring;
 import org.junit.jupiter.api.Test;
 
@@ -33,12 +33,13 @@ final class DialTest {
         assertThat(dial.zeroCounters).isEqualTo(3);
     }
 
+    @IncludeAOCFile(fileName = "d1_input")
     @Test
-    void task1() {
+    void task1(List<String> lines) {
         var dial = new Dial();
 
         Measuring.runMeasured("Task1", () -> {
-            dial.dial(FileUtil.parseFile("d1_input").stream()
+            dial.dial(lines.stream()
                     .map(Dial.Instruction::from)
                     .toList());
             System.out.println("Result: " + dial.zeroCounters);
@@ -69,12 +70,13 @@ final class DialTest {
         assertThat(dial.zeroCounters).isEqualTo(6);
     }
 
+    @IncludeAOCFile(fileName = "d1_input")
     @Test
-    void task2() {
+    void task2(List<String> lines) {
         var dial = new Dial();
 
         Measuring.runMeasured("Task 2", () -> {
-            dial.dial2(FileUtil.parseFile("d1_input").stream()
+            dial.dial2(lines.stream()
                     .map(Dial.Instruction::from)
                     .toList());
 

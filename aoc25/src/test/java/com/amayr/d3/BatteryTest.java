@@ -1,6 +1,6 @@
 package com.amayr.d3;
 
-import com.amayr.FileUtil;
+import com.amayr.IncludeAOCFile;
 import com.amayr.Measuring;
 import org.junit.jupiter.api.Test;
 
@@ -22,13 +22,14 @@ final class BatteryTest {
         });
     }
 
+    @IncludeAOCFile(fileName = "d3_input")
     @Test
-    void task1() {
+    void task1(List<String> lines) {
         var battery = new Battery();
 
         Measuring.runMeasured("Task1", () -> {
             var result = battery.totalJoltage(
-                    FileUtil.parseFile("d3_input").stream()
+                    lines.stream()
                             .toList(),
                     Battery::part1
             );
@@ -50,13 +51,14 @@ final class BatteryTest {
         });
     }
 
+    @IncludeAOCFile(fileName = "d3_input")
     @Test
-    void task2() {
+    void task2(List<String> lines) {
         var battery = new Battery();
 
         Measuring.runMeasured("Task2", () -> {
             var result = battery.totalJoltage(
-                    FileUtil.parseFile("d3_input").stream()
+                    lines.stream()
                             .toList(),
                     Battery::part2
             );

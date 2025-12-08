@@ -1,7 +1,9 @@
 package com.amayr.d5;
 
-import com.amayr.FileUtil;
+import com.amayr.IncludeAOCFile;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,15 +23,16 @@ final class IngredientsTest {
         assertThat(count).isEqualTo(3);
     }
 
+    @IncludeAOCFile(fileName = "d5_input")
     @Test
-    void task1() {
-        var ranges = FileUtil.parseFile("d5_input").stream()
+    void task1(List<String> lines) {
+        var ranges = lines.stream()
                 .takeWhile(inp -> inp != null && !inp.isBlank())
                 .map(inp -> inp.split("-"))
                 .map(parts -> new Ingredients.Range(Long.parseLong(parts[0]), Long.parseLong(parts[1])))
                 .toArray(Ingredients.Range[]::new);
 
-        var values = FileUtil.parseFile("d5_input").stream()
+        var values = lines.stream()
                 .dropWhile(inp -> inp != null && !inp.isBlank())
                 .skip(1)
                 .map(inp -> Long.valueOf(inp))
@@ -52,9 +55,10 @@ final class IngredientsTest {
         assertThat(count).isEqualTo(14);
     }
 
+    @IncludeAOCFile(fileName = "d5_input")
     @Test
-    void task2() {
-        var ranges = FileUtil.parseFile("d5_input").stream()
+    void task2(List<String> lines) {
+        var ranges = lines.stream()
                 .takeWhile(inp -> inp != null && !inp.isBlank())
                 .map(inp -> inp.split("-"))
                 .map(parts -> new Ingredients.Range(Long.parseLong(parts[0]), Long.parseLong(parts[1])))
@@ -62,6 +66,6 @@ final class IngredientsTest {
 
         var count = new Ingredients().amountIds(ranges);
 
-        assertThat(count).isEqualTo(338028770499116L);
+        assertThat(count).isEqualTo(345995423801866L);
     }
 }

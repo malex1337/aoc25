@@ -1,10 +1,11 @@
 package com.amayr.d2;
 
-import com.amayr.FileUtil;
+import com.amayr.IncludeAOCFile;
 import com.amayr.Measuring;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -32,14 +33,15 @@ final class IdsTest {
                 });
     }
 
+    @IncludeAOCFile(fileName = "d2_input")
     @Test
-    void task1() {
+    void task1(List<String> lines) {
         var ids = new Ids();
 
         Measuring.runMeasured("Task1",
                 () -> {
                     var result = ids.sumInvalids(Ids::invalidIdsPart1,
-                            Arrays.stream(FileUtil.parseFile("d2_input").stream()
+                            Arrays.stream(lines.stream()
                                             .findFirst().get()
                                             .split(","))
                                     .map(Ids.IdRange::of)
@@ -73,14 +75,15 @@ final class IdsTest {
                 });
     }
 
+    @IncludeAOCFile(fileName = "d2_input")
     @Test
-    void task2() {
+    void task2(List<String> lines) {
         var ids = new Ids();
 
         Measuring.runMeasured("Task2",
                 () -> {
                     var result = ids.sumInvalids(Ids::invalidIdsPart2,
-                            Arrays.stream(FileUtil.parseFile("d2_input").stream()
+                            Arrays.stream(lines.stream()
                                             .findFirst().get()
                                             .split(","))
                                     .map(Ids.IdRange::of)
