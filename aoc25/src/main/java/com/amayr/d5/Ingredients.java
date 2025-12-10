@@ -1,7 +1,8 @@
 package com.amayr.d5;
 
-import java.util.*;
-import java.util.stream.LongStream;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public final class Ingredients {
     public int countInRanges(Long[] values, Range... ranges) {
@@ -45,7 +46,7 @@ public final class Ingredients {
     }
 
 
-    record Range(long from, long to) {
+    public record Range(long from, long to) {
         boolean contains(long value) {
             return value >= from && value <= to;
         }
