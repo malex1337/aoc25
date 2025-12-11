@@ -1,4 +1,4 @@
-package com.amayr;
+package com.amayr.d10;
 
 import java.util.*;
 import java.util.regex.Pattern;

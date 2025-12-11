@@ -1,5 +1,6 @@
 package com.amayr;
 
+import com.amayr.d10.Lightings;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
